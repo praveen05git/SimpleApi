@@ -1,23 +1,32 @@
-package com.hencesimplified.praveenhackerearth;
+package com.hencesimplified.praveenhackerearth.view;
 
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.hencesimplified.praveenhackerearth.R;
+import com.hencesimplified.praveenhackerearth.viewmodel.WeatherViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationListener {
 
     private WeatherViewModel viewModel;
     private WeatherAdapter weatherAdapter = new WeatherAdapter(new ArrayList<>());
     RecyclerView weatherListView;
     ProgressBar loadingView;
+    public TextView locationText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         weatherListView = findViewById(R.id.weatherList);
         loadingView = findViewById(R.id.loadingView);
+        locationText = findViewById(R.id.location);
 
         viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
         viewModel.fetchData();
 
         weatherListView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         weatherListView.setAdapter(weatherAdapter);
+
 
         observeViewModel();
 
@@ -57,5 +68,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        locationText.setText("Lat: " + location.getLatitude() + " Long: " + location.getLongitude());
     }
 }

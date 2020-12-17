@@ -1,4 +1,4 @@
-package com.hencesimplified.praveenhackerearth;
+package com.hencesimplified.praveenhackerearth.model;
 
 public class Weather {
 

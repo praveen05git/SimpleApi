@@ -1,4 +1,4 @@
-package com.hencesimplified.praveenhackerearth;
+package com.hencesimplified.praveenhackerearth.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.hencesimplified.praveenhackerearth.R;
+import com.hencesimplified.praveenhackerearth.model.Weather;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +43,11 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         TextView wind = holder.itemView.findViewById(R.id.wind);
         TextView date = holder.itemView.findViewById(R.id.date);
 
-        temp.setText(weatherList.get(position).temp);
-        rain.setText(weatherList.get(position).rain);
-        wind.setText(weatherList.get(position).wind);
+        temp.setText(weatherList.get(position).temp + " °C");
+        rain.setText(weatherList.get(position).rain + " %");
+        wind.setText(weatherList.get(position).wind + "km/h");
         date.setText(weatherList.get(position).time);
+        //date.setText(SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date((weatherList.get(position).time) * 1000));
     }
 
     @Override

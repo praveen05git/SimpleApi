@@ -1,4 +1,4 @@
-package com.hencesimplified.praveenhackerearth;
+package com.hencesimplified.praveenhackerearth.viewmodel;
 
 import android.app.Application;
 import android.widget.Toast;
@@ -6,6 +6,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+
+import com.hencesimplified.praveenhackerearth.model.Weather;
+import com.hencesimplified.praveenhackerearth.model.WeatherApiService;
 
 import java.util.List;
 

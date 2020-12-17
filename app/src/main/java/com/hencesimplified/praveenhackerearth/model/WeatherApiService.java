@@ -1,4 +1,7 @@
-package com.hencesimplified.praveenhackerearth;
+package com.hencesimplified.praveenhackerearth.model;
+
+import com.hencesimplified.praveenhackerearth.model.Weather;
+import com.hencesimplified.praveenhackerearth.model.WeatherApi;
 
 import java.util.List;
 
@@ -9,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeatherApiService {
     private static final String BASE_URL = "https://raw.githubusercontent.com";
-
+    //private static final String BASE_URL = "https://www.mocky.io";
     private WeatherApi api;
 
     public WeatherApiService() {
