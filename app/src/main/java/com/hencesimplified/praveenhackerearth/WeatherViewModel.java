@@ -34,9 +34,13 @@ public class WeatherViewModel extends AndroidViewModel {
                         .subscribeWith(new DisposableSingleObserver<List<Weather>>() {
                             @Override
                             public void onSuccess(@io.reactivex.annotations.NonNull List<Weather> weathers) {
-                                weatherList.setValue(weathers);
-                                loading.setValue(false);
-                                Toast.makeText(getApplication(), "Retrieved from endpoint", Toast.LENGTH_LONG).show();
+                                try {
+                                    weatherList.setValue(weathers);
+                                    loading.setValue(false);
+                                    Toast.makeText(getApplication(), "Retrieved from endpoint", Toast.LENGTH_LONG).show();
+                                }catch (Exception e) {
+                                    Toast.makeText(getApplication(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
                             }
 
                             @Override

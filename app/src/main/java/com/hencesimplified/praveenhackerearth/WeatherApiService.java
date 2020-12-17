@@ -8,7 +8,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeatherApiService {
-    private static final String BASE_URL = "https://www.mocky.io/v2/";
+    private static final String BASE_URL = "https://raw.githubusercontent.com";
 
     private WeatherApi api;
 

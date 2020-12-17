@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         viewModel.loading.observe(this, isLoading -> {
             if (isLoading != null && isLoading instanceof Boolean) {
                 loadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE);
@@ -54,5 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
     }
 }
