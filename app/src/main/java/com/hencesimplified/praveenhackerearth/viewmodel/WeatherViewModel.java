@@ -41,7 +41,7 @@ public class WeatherViewModel extends AndroidViewModel {
                                     weatherList.setValue(weathers);
                                     loading.setValue(false);
                                     Toast.makeText(getApplication(), "Retrieved from endpoint", Toast.LENGTH_LONG).show();
-                                }catch (Exception e) {
+                                } catch (Exception e) {
                                     Toast.makeText(getApplication(), e.getMessage(), Toast.LENGTH_LONG).show();
                                 }
                             }

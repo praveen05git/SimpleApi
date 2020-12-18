@@ -71,13 +71,13 @@
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
-            android:layout_gravity="left"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_gravity="left"
             android:layout_marginLeft="20dp"
+            android:layout_weight="1"
             android:gravity="left|center"
-            android:textColor="@color/black"
-            android:text="12345567890" />
+            android:text="12345567890"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

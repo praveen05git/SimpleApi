@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private WeatherAdapter weatherAdapter = new WeatherAdapter(new ArrayList<>());
     RecyclerView weatherListView;
     ProgressBar loadingView;
+    SwipeRefreshLayout refreshLayout;
     public TextView locationText;
 
     @Override
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         weatherListView = findViewById(R.id.weatherList);
         loadingView = findViewById(R.id.loadingView);
         locationText = findViewById(R.id.location);
+        refreshLayout = findViewById(R.id.refreshLayout);
 
         viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
         viewModel.fetchData();
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         weatherListView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         weatherListView.setAdapter(weatherAdapter);
 
+        refreshLayout.setOnRefreshListener(() -> {
+            viewModel.fetchData();
+            refreshLayout.setRefreshing(false);
+        });
 
         observeViewModel();
 
