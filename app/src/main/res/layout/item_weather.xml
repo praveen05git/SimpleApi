@@ -34,7 +34,7 @@
                 android:padding="20dp"
                 android:text="24 °C"
                 android:textColor="@color/black"
-                android:textSize="40sp"
+                android:textSize="35sp"
                 android:textStyle="bold" />
 
             <ImageView
